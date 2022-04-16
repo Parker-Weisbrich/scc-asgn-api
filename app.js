@@ -6,9 +6,10 @@
  * COMP2150 Web Services
  */
 
+
  let express = require('express')
  let app = express();
- const apiRouter = require("./api-router.js");
+ const apiRouter = require("./asgn-router.js");
  let mongoose = require("mongoose");
  let bodyParser = require("body-parser");
  
@@ -18,7 +19,7 @@
  app.use(bodyParser.json());
  
  // connect to mongoose
- mongoose.connect("mongodb://localhost/contacts", { useNewUrlParser: true});
+ mongoose.connect("mongodb://localhost/assignments", { useNewUrlParser: true});
  var db = mongoose.connection;
  
  if(!db) {
@@ -29,7 +30,7 @@
  
  var port = 8080;
  
- app.use("/api", apiRouter);
+ app.use("/asgn-api", apiRouter);
  
  app.get('/', (req, res) => res.send('Hello World with Express'));
  
